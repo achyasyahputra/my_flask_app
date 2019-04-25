@@ -22,7 +22,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry('', 'dockerhub') {
+          docker.withRegistry('https://cloud.docker.com/repository/registry-1.docker.io/achyasyahputra/my_flask_app', 'dockerhub') {
             dockerImage.push()
           }
         }
