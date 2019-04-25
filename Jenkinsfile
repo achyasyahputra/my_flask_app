@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "achyasyahputra/flaskapp"
+    registry = "achyasyahputra/my_flask_app"
     registryCredential = 'dockerhub'
     dockerImage = ''
   } 
