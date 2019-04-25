@@ -11,11 +11,25 @@ pipeline {
         git 'https://github.com/achyasyahputra/my_flask_app'
       }
     } 
-    stage('build') {
+    stage('Build Image') {
       steps {
 	script {
       	  docker.build registry + ":$BUILD_NUMBER"
         }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+    stage('Remove Unused Image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
   }
