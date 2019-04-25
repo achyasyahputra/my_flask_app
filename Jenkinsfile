@@ -22,7 +22,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry( '', dockerhub) {
+          docker.withRegistry( '', achyasyahputra/****** (dockerhub)) {
             dockerImage.push()
           }
         }
