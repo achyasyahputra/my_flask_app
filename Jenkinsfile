@@ -22,8 +22,10 @@ pipeline {
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry('https://cloud.docker.com/repository/registry-1.docker.io/achyasyahputra/my_flask_app', 'dockerhub') {
-            dockerImage.push()
+	  withCredentials([usernamePassword( credentialsId: 'dockerhub', usernameVariable: 'achyasyahputra', passwordVariable: 'Hitman129032')]) {
+
+	   docker.withRegistry('', 'dockerhub') {
+sh "docker login -u ${USERNAME} -p ${PASSWORD}"
           }
         }
       }
