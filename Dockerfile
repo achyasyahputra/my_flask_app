@@ -2,12 +2,11 @@ FROM python:3.5.1
 
 LABEL maintainer "achya_syahputra@outlook.com"
 
-RUN pip install -U pip \ 
-    pip install -r requirements.txt
+WORKDIR ~/my_flask_app
 
 COPY . .
 
-WORKDIR ~/my_flask_app
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 8000
 
