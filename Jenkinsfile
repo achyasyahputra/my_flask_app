@@ -1,10 +1,17 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
-        }
+
+  environment {
+    registry = "achyasyahputra/flaskapp"
+    registryCredential = 'dockerhub'
+  } 
+  agent any
+  stages {
+    stage('build') {
+      steps {
+	script {
+      	  docker.build registry + ":$BUILD_NUMBER"
+       }
+`````}
     }
+  }
 }
