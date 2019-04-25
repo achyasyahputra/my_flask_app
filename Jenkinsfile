@@ -22,7 +22,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry('https://cloud.docker.com/repository/docker/achyasyahputra/flaskapp', 'docker-hub') {
+          docker.withRegistry('', 'dockerhub') {
             dockerImage.push()
           }
         }
