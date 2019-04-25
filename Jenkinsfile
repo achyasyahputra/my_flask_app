@@ -6,6 +6,11 @@ pipeline {
   } 
   agent any
   stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/achyasyahputra/my_flask_app'
+      }
+    } 
     stage('build') {
       steps {
 	script {
