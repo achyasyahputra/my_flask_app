@@ -11,9 +11,8 @@ RUN pip install flask gunicorn
 EXPOSE 8000
 
 #CMD ["gunicorn", "-b", "0.0.0.0:8000", "hello"]
-RUN source env/bin/activate
 
-CMD  gunicorn hello:app
+CMD  gunicorn -b 0.0.0.0:80 hello:app
 
 
 
