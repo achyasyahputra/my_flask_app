@@ -2,9 +2,9 @@ FROM python:3.5.1
 
 LABEL maintainer "achya_syahputra@outlook.com"
 
-WORKDIR ~/my_flask_app
+WORKDIR /my_flask_app
 
-COPY . ~/my_flask_app
+COPY . .
 
 RUN pip install flask gunicorn
     
