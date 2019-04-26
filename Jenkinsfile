@@ -33,14 +33,10 @@ pipeline {
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
     }
-  }
-    stage('Pull Image') {
+  stage('Pull Image') {
       steps{
-        script {
-	  docker.withRegistry('https://index.docker.io/v1/', registryCredential) {
-            dockerImage.pull()
-          }
-        }
+        sh "docker pull $registry:$BUILD_NUMBER"
       }
     }
+  }
 }
