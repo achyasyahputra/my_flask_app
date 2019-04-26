@@ -38,5 +38,10 @@ pipeline {
         sh "docker pull $registry:$BUILD_NUMBER"
       }
     }
+  stage('Run Image') {
+      steps{
+        sh "docker run -d $registry:$BUILD_NUMBER"
+      }
+    }
   }
 }
