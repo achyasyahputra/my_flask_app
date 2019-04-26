@@ -4,13 +4,13 @@ LABEL maintainer "achya_syahputra@outlook.com"
 
 WORKDIR ~/my_flask_app
 
-COPY . .
+COPY . ~/my_flask_app
 
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-
+RUN pip install flask gunicorn
+    
 EXPOSE 8000
 
-CMD gunicorn hello:app
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "hello"]
 
 
 
