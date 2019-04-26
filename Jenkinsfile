@@ -34,4 +34,13 @@ pipeline {
       }
     }
   }
+    stage('Pull Image') {
+      steps{
+        script {
+	  docker.withRegistry('https://index.docker.io/v1/', registryCredential) {
+            dockerImage.pull()
+          }
+        }
+      }
+    }
 }
